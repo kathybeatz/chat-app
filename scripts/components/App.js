@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Messages from './Messages'
 import InputArea from './InputArea'
+import Banner from './Banner'
 
 const propTypes = {
   message: PropTypes.object.isRequired,
@@ -10,9 +11,12 @@ class App extends Component {
   render() {
     const { messageList } = this.props.message;
     return (
-      <div className='content'>
+      <div id='content-wrapper'>
+        <Banner />
         <Messages messageList={messageList}/>
-        <InputArea dispatch={this.props.dispatch} />
+        <div id="footer">
+          <InputArea dispatch={this.props.dispatch} />
+        </div>
       </div>
     );
   }
