@@ -13,23 +13,21 @@ class InputArea extends Component {
   handleTextUpdate (e) {
     this.setState({text: e.target.value})
   }
-  handleSubmit () {
-    // dispatch action to save text as message
-    this.props.dispatch(addMessage(this.state.text))
-    this.setState({text: ''})
+  handleSubmit (e) {
+    if (e.keyCode === 13) {
+      this.props.dispatch(addMessage(this.state.text))
+      this.setState({text: ''})
+    }
   }
   render () {
     return (
-      <div className='input-area'>
-        <input
+      <div id='input-area'>
+        <textarea
           type='text'
-          placeholder='type here'
           onChange={this.handleTextUpdate}
+          onKeyUp={this.handleSubmit}
           value={this.state.text}>
-        </input>
-        <button
-          type='submit'
-          onClick={this.handleSubmit}>go</button>
+        </textarea>
       </div>)
   }
 }
