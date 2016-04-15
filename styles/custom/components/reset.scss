@@ -1,30 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-}
-
-.content {
-  max-width: 700px;
-  padding: 20px 20px;
-  margin: auto;
-}
-
-.messages-container {
-  font-family: Arial;
-  width: 100%;
-  height: 700px;
-  padding: 20px 20px;
-}
-
-.input-area {
-
-}
-
-input {
-  width: 100%;
-  padding: 5px 5px;
-  border: 1px solid #CCC;
-  border-radius: 3px;
-  font-family: Arial;
-  font-size: 14px;
+  box-sizing: border-box;
+  font-family: Slack-Lato, appleLogo ,sans-serif;
 }

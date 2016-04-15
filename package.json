@@ -8,10 +8,6 @@
     "start": "webpack-dev-server --progress --colors --hot --content-base public --config ./webpack.config.js",
     "test": "mocha --compilers js:babel-register --recursive"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@gitweb.eng.storvisor.com:anguyen/ui-scaffold.git"
-  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
