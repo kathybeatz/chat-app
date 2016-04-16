@@ -1,4 +1,4 @@
-# Chat App using React, Redux and SASS
+# Chat App using React & Redux
 
 ## To run it locally
 1. `$ npm install`

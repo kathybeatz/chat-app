@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 
 const Messages = (props) => {
-
-  var list = props.messagesList.map(function (msg, index) {
+  var list = props.data.map(function (msg, index) {
       return <span className='message-content' key={index}>
         <a className='username' href=''>User1</a>
         <span className='time'>2:16PM</span>

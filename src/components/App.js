@@ -5,19 +5,20 @@ import Banner from './Banner'
 import Channels from './Channels'
 
 const propTypes = {
-  chat: PropTypes.object.isRequired,
+  messages: PropTypes.object.isRequired,
 }
 
 const App = (props) => {
-  const { messagesList } = this.props.chat
+  const { data } = props.messages
+
   return (
     <div id='content-wrapper' className='clearfix'>
       <Banner />
       <Channels />
-      <Messages messagesList={messagesList}/>
+      <Messages data={data}/>
       <div id='footer'>
         <div id='filter-feature'></div>
-        <InputArea dispatch={this.props.dispatch} />
+        <InputArea dispatch={props.dispatch} />
       </div>
     </div>
   )

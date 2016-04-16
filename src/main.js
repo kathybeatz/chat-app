@@ -11,6 +11,8 @@ import configureStore from './store/configureStore';
 
 const store = configureStore();
 
+window.store = store
+
 ReactDOM.render(
   <Provider store={store} >
     <AppContainer />

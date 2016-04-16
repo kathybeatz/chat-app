@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { addMessage } from '../Actions/messages';
+import { createMessage } from '../Actions/messages';
 
 class InputArea extends Component {
   constructor () {
@@ -15,7 +15,11 @@ class InputArea extends Component {
   }
   handleSubmit (e) {
     if (e.keyCode === 13) {
-      this.props.dispatch(addMessage(this.state.text))
+      var newMessage = {
+        text: this.state.text,
+        user: 'User1' // read the username from props
+      }
+      this.props.dispatch(createMessage(newMessage))
       this.setState({text: ''})
     }
   }
