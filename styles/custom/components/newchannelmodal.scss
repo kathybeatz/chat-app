@@ -1,0 +1,21 @@
+#new-channel-modal {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#hide-modal-btn {
+  position: relative;
+  top: 20%;
+  left: 85%;
+}
+
+#new-channel-modal input {
+  width: 70%;
+  position: relative;
+  top: 30%;
+  left: 15%;
+}
