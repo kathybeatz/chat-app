@@ -40,6 +40,7 @@ class ChatArea extends Component {
 }
 
 let mapStateToProps = (state) => {
+  // <ChatArea rerenders when data updates
   return { data: state.messages.data }
 }
 

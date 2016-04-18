@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import NewChannelModal from './NewChannelModal'
+import { connect } from 'react-redux'
 /*
   When user clicks new-channel-button,
   1) Show an input field
@@ -24,18 +25,28 @@ class Channels extends Component {
     this.setState({ inputDisplay: 'none' })
   }
   render () {
+    const { all } = this.props.channels
+    let allChannels = all.map(function (channel, index) {
+      return <li id='channel-item'><a href='' key={channel.id}>{channel.name}</a></li>
+    })
+
     return (
       <div id='col_channels'>
         <span id='channels-header'>Channels (1)</span>
         <button id='new-channel-btn' onClick={this.addNewChannelModal}>+</button>
         <ul id='channel-list'>
-          <li>#channel1</li>
-          <li>#channel2</li>
-          <li>#channel3</li>
+          {allChannels}
         </ul>
         <NewChannelModal style={this.state.inputDisplay} hideModal={this.hideModal}/>
       </div>
     )
   }
 }
-export default Channels
+
+let mapStateToProps = (state) => {
+  return {
+    channels: state.channels
+  }
+}
+
+export default connect(mapStateToProps)(Channels)
