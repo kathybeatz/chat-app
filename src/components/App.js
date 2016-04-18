@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import ChatArea from './ChatArea'
 import InputArea from './InputArea'
-import Banner from './Banner'
+import User from './User'
 import Channels from './Channels'
 
 const propTypes = {
@@ -13,7 +13,7 @@ const App = (props) => {
 
   return (
     <div id='content-wrapper' className='clearfix'>
-      <Banner />
+      <User />
       <Channels />
       <ChatArea />
       <div id='footer'>

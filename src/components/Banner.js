@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Banner = () =>
-  <div id="banner">
-    <h1>#channel1</h1>
+const User = () =>
+  <div id="username">
+    <h1>User1</h1>
   </div>
 
-export default Banner
+export default User
