@@ -1,5 +1,5 @@
 const initialState = {
-  data: [],
+  data: []
 };
 /*
 
@@ -24,11 +24,16 @@ state = {
 */
 export function messages(state = initialState, action) {
   switch (action.type) {
-    case 'ADD_MSG':
-      var updatedData = state.data.concat([action.message])
+    case 'ADD_MESSAGE':
+      // { action.message, action.user }
       return {
         ...state,
-        data: updatedData
+        data: [ ...state.data ]
+      }
+    case 'LOAD_MESSAGES':
+      return {
+        ...state,
+        data: [ ...state.data , action.data ]
       }
     default:
       return state;
