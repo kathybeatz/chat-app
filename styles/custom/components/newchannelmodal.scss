@@ -7,6 +7,13 @@
   width: 100%;
 }
 
+#modal-container {
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: pink;
+}
+
 #hide-modal-btn {
   position: relative;
   top: 20%;
@@ -18,4 +25,12 @@
   position: relative;
   top: 30%;
   left: 15%;
+}
+
+#create-channel-btn {
+  border-radius: .25rem;
+  position: relative;
+  top: 40%;
+  margin: 0 auto;
+  width: 100px;
 }
