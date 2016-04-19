@@ -4,9 +4,6 @@ import { fetchMessages } from '../Actions/messages'
 
 class ChatArea extends Component {
   componentDidMount () {
-    // fetch messages from FireBase
-    // ISSUE: dispatching this many times,
-    // will cause duplicated messages in app state!!
     this.props.dispatch(fetchMessages()) //this.actions.receiveMessages(channel)
   }
   render () {

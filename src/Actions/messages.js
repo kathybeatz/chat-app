@@ -17,13 +17,19 @@ export function createMessage (data) {
   }
 }
 
-export function fetchMessages (data) {
-  // Called when <ChatArea /> first mounts and when
-  // a new message is added.
-  return dispatch => {
-    fb.on('child_added', function (dataSnapshot) {
-      dispatch(receiveMessages(dataSnapshot.val()))
-    })
+function shouldFetchMessages(state) {
+  // return true if state does not contain any messages
+  return state.messages.data.length === 0
+}
+
+export function fetchMessages () {
+  return (dispatch, getState) => {
+    // listen to fb reference if state does not contain messages (eg. initial page load)
+    if (shouldFetchMessages(getState())) {
+      fb.on('child_added', function (dataSnapshot) {
+        dispatch(receiveMessages(dataSnapshot.val()))
+      })
+    }
   }
 }
 
