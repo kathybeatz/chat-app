@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import NewChannelModal from './NewChannelModal'
 import { connect } from 'react-redux'
+import { fetchChannels } from '../Actions/channels'
 /*
   When user clicks new-channel-button,
   1) Show an input field
@@ -18,6 +19,9 @@ class Channels extends Component {
       inputDisplay: 'none' // determines display value of <NewChannelModal />
     }
   }
+  componentDidMount () {
+    this.props.dispatch(fetchChannels())
+  }
   addNewChannelModal () {
     this.setState({ inputDisplay: '' })
   }
@@ -27,7 +31,8 @@ class Channels extends Component {
   render () {
     const { all } = this.props.channels
     let allChannels = all.map(function (channel, index) {
-      return <li id='channel-item'><a href='' key={channel.id}>{channel.name}</a></li>
+      // use channel.id as key when we start randomizing ids
+      return <li id='channel-item'><a href='' key={index}>{channel.name}</a></li>
     })
 
     return (

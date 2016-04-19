@@ -20,10 +20,8 @@ export function createMessage (data) {
 export function fetchMessages (data) {
   // Called when <ChatArea /> first mounts and when
   // a new message is added.
-  console.log('fetching')
   return dispatch => {
     fb.on('child_added', function (dataSnapshot) {
-      console.log(dataSnapshot.val())
       dispatch(receiveMessages(dataSnapshot.val()))
     })
   }

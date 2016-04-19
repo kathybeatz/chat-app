@@ -16,6 +16,12 @@ export function channels (state = initialState, action) {
         active: channel,
         all: updatedChannels
       }
+    case 'LOAD_CHANNELS':
+      let loadedChannels = state.all.concat(action.json)
+      return {
+        ...state,
+        all: loadedChannels
+      }
     default:
       return state
   }

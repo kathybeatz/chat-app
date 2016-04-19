@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { addChannel } from '../Actions/channels'
+import { createChannel } from '../Actions/channels'
 import { connect } from 'react-redux'
 
 class NewChannelModal extends Component {
@@ -15,7 +15,7 @@ class NewChannelModal extends Component {
     this.setState({channel: e.target.value})
   }
   handleSubmit () {
-    this.props.dispatch(addChannel(this.state.channel))
+    this.props.dispatch(createChannel(this.state.channel))
     this.props.hideModal()
   }
   render () {
