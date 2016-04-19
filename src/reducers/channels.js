@@ -9,18 +9,20 @@ const initialState = {
 export function channels (state = initialState, action) {
   switch (action.type) {
     case 'ADD_CHANNEL':
-      let channel = { name: action.name, id: 2312412 }
-      let updatedChannels = state.all.concat(channel)
+
       return {
-        ...state,
-        active: channel,
-        all: updatedChannels
+        ...state
       }
     case 'LOAD_CHANNELS':
       let loadedChannels = state.all.concat(action.json)
       return {
         ...state,
         all: loadedChannels
+      }
+    case 'CHANGE_CHANNEL':
+      return {
+        ...state,
+        active: { name: action.name, id: action.id }
       }
     default:
       return state

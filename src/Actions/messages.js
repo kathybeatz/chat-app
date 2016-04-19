@@ -33,9 +33,9 @@ export function fetchMessages () {
   }
 }
 
-function receiveMessages (dataSnapshot) {
+function receiveMessages (json) {
   return {
     type: 'LOAD_MESSAGES',
-    data: dataSnapshot
+    data: json
   }
 }

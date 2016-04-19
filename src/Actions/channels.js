@@ -1,25 +1,24 @@
 import Firebase from 'firebase'
 let fb = new Firebase('https://chatapp100.firebaseio.com/channels')
 
-function addChannel (name, id) {
+function addChannel () {
   return {
-    type: 'ADD_CHANNEL',
-    name: name,
-    id: id
+    type: 'ADD_CHANNEL'
   }
 }
 
 export function createChannel (name) {
-  let id = 0 // make this a unique id
+  let id = (Math.floor(Math.random() * 100)) // make this a unique id
   return (dispatch, getState) => {
-    // find any duplicates in state
+    // array of any duplicates found
     let duplicates = getState().channels.all.filter(function (channel) {
       return channel.name === name
     })
     if (duplicates.length === 0) {
-      // only add new channel if it is not already found in state
-      dispatch(addChannel(name, id))
+      // only add new channel if is not a duplicate in the state
       fb.push({ name, id})
+      dispatch(addChannel())
+      dispatch(changeChannel(name, id))
     }
   }
 }
@@ -44,5 +43,13 @@ export function fetchChannels () {
         dispatch(receiveChannels(dataSnapshot.val()))
       })
     }
+  }
+}
+
+function changeChannel (name, id) {
+  return {
+    type: 'CHANGE_CHANNEL',
+    name: name,
+    id: id
   }
 }
