@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import ChatArea from './ChatArea'
 import InputArea from './InputArea'
-import User from './User'
+import ChatHeader from './ChatHeader'
 import Channels from './Channels'
 
 const propTypes = {
@@ -12,8 +12,8 @@ const App = (props) => {
   const { data } = props.messages
 
   return (
-    <div id='content-wrapper' className='clearfix'>
-      <User />
+    <div id='content-wrapper'>
+      <ChatHeader />
       <Channels />
       <ChatArea />
       <div id='footer'>

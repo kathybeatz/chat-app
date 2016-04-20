@@ -23,7 +23,8 @@ class NewChannelModal extends Component {
       <div id='new-channel-modal' style={{'display': this.props.style}}>
         <div id='modal-container'>
           <button id='hide-modal-btn' onClick={this.props.hideModal}>x</button>
-          <input maxLength="10" onChange={this.handleText}></input>
+          <label htmlFor='create-new-channel-name'>Channel name</label>
+          <input id='create-new-channel-name' maxLength='30' onChange={this.handleText}></input>
           <button id='create-channel-btn' onClick={this.handleSubmit}>Create Channel</button>
         </div>
       </div>
