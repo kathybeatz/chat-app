@@ -50,7 +50,7 @@ class Channels extends Component {
 
     return (
       <div id='col_channels'>
-        <span id='channels-header'>Channels (1)</span>
+        <span id='channels-header'>Channels ({all.length})</span>
         <button id='new-channel-btn' onClick={this.addNewChannelModal}>+</button>
         <ul id='channel-list' onClick={this.handleULclick}>
           {allChannels}

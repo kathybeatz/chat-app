@@ -3,8 +3,16 @@ import { connect } from 'react-redux'
 import { fetchMessages } from '../Actions/messages'
 
 class ChatArea extends Component {
+  constructor () {
+    super()
+    this.getFormattedTime = this.getFormattedTime.bind(this)
+  }
   componentDidMount () {
     this.props.dispatch(fetchMessages()) //this.actions.receiveMessages(channel)
+  }
+  getFormattedTime (epoch) {
+    let humanDate = new Date(epoch)
+    return humanDate.toLocaleTimeString('en-US')
   }
   render () {
     // only show previous messages if they exist.
@@ -15,7 +23,7 @@ class ChatArea extends Component {
     ).map((data, index) => {
       return <span className='message-content' key={index}>
         <a className='username' href=''>{data.user}</a>
-        <span className='time'>2:16PM</span>
+        <span className='time'>{this.getFormattedTime(data.unixEpoch)}</span>
         <p className='message-body'>{data.message}</p>
       </span>
     })

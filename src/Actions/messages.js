@@ -13,7 +13,8 @@ export function createMessage (data) {
     fb.push({
       message: data.text,
       user: data.user,
-      channel: getState().channels.active.name
+      channel: getState().channels.active.name,
+      unixEpoch: new Date().getTime()
     })
   }
 }
