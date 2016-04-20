@@ -8,11 +8,12 @@ function addMessage () {
 }
 
 export function createMessage (data) {
-  return dispatch => {
+  return (dispatch, getState) => {
     dispatch(addMessage())
     fb.push({
       message: data.text,
-      user: data.user
+      user: data.user,
+      channel: getState().channels.active.name
     })
   }
 }

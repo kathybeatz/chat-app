@@ -1,7 +1,6 @@
 const initialState = {
   active: {
-    name: '',
-    id: 0
+    name: 'Main'
   },
   all: []
 }
@@ -22,7 +21,7 @@ export function channels (state = initialState, action) {
     case 'CHANGE_CHANNEL':
       return {
         ...state,
-        active: { name: action.name, id: action.id }
+        active: { name: action.name }
       }
     default:
       return state

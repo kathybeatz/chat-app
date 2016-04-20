@@ -8,7 +8,7 @@ function addChannel () {
 }
 
 export function createChannel (name) {
-  let id = (Math.floor(Math.random() * 100)) // make this a unique id
+
   return (dispatch, getState) => {
     // array of any duplicates found
     let duplicates = getState().channels.all.filter(function (channel) {
@@ -16,9 +16,9 @@ export function createChannel (name) {
     })
     if (duplicates.length === 0) {
       // only add new channel if is not a duplicate in the state
-      fb.push({ name, id})
+      fb.push({ name })
       dispatch(addChannel())
-      dispatch(changeChannel(name, id))
+      dispatch(changeChannel(name))
     }
   }
 }
@@ -46,10 +46,9 @@ export function fetchChannels () {
   }
 }
 
-function changeChannel (name, id) {
+export function changeChannel (name) {
   return {
     type: 'CHANGE_CHANNEL',
-    name: name,
-    id: id
+    name: name
   }
 }

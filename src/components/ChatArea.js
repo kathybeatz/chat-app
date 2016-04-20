@@ -8,9 +8,11 @@ class ChatArea extends Component {
   }
   render () {
     // only show previous messages if they exist.
+    // display messages of active channel
 
-    var list = this.props.data.map(function (data, index) {
-
+    let list = this.props.data.filter(data =>
+      data.channel === this.props.channel
+    ).map((data, index) => {
       return <span className='message-content' key={index}>
         <a className='username' href=''>{data.user}</a>
         <span className='time'>2:16PM</span>
@@ -38,7 +40,10 @@ class ChatArea extends Component {
 
 let mapStateToProps = (state) => {
   // <ChatArea rerenders when data updates
-  return { data: state.messages.data }
+  return {
+    data: state.messages.data,
+    channel: state.channels.active.name
+  }
 }
 
 export default connect(mapStateToProps)(ChatArea)
