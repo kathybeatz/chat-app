@@ -28,7 +28,7 @@ class NewChannelModal extends Component {
             id='create-new-channel-name'
             onChange={this.handleText}
             min='1'
-            maxLength='30'></input>
+            maxLength='21'></input>
           <button id='create-channel-btn' onClick={this.handleSubmit}>Create Channel</button>
         </div>
       </div>

@@ -3,30 +3,43 @@
   width: 220px;
   background-color: #3e313c;
   color: #fff;
-  padding: 10px;
+  padding: 10px 0 10px;
   float: left;
   height: 100%;
 }
 
-#channel_list {
-  display: inline-block;
+// .channel-item {
+//   background-color: #ab9ba9;
+//   border-radius: 10px;
+//   border: 1px solid #ab9ba9;
+//   height: 15px;
+//   width: 100%;
+
+//   display: inline-block;
+//   margin-left: 15px;
+// }
+
+.channel-item a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 10px;
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 1px 5px;
 }
 
-// channel list item
-#channel-item {
-  height: 20px;
+.active {
+  background-color: #563852;
 }
 
-#channel-item button {
-  background-color: #ab9ba9;
-  border-radius: 10px;
-  border: 1px solid #ab9ba9;
-  color: #000;
-  height: 15px;
-  width: 100%;
+.channel-item  a:hover {
+  background-color: #2B1F29;
 }
 
 #channels-header span {
+  padding-left: 5px;
+  padding-bottom: 5px;
   color: #ab9ba9;
 }
 
@@ -39,4 +52,5 @@
   background-color: #3e313c;
   color: #ab9ba9;
   padding-bottom: 2px;
+  margin-right: 10px;
 }

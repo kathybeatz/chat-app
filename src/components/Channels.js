@@ -42,10 +42,14 @@ class Channels extends Component {
     }
   }
   render () {
-    const { all } = this.props.channels
+    const { all, active } = this.props.channels
     let allChannels = all.map(function (channel, index) {
       // use channel.id as key when we start randomizing ids
-      return <li id='channel-item' key={index}><button>{channel.name}</button></li>
+      if (channel.name === active.name) {
+        return <li className='channel-item' key={index}><a className='active' href='#'>{channel.name}</a></li>
+      } else {
+        return <li className='channel-item' key={index}><a href='#'>{channel.name}</a></li>
+      }
     })
 
     return (
