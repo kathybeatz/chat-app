@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchMessages } from '../Actions/messages'
+import ReactEmoji from 'react-emoji'
 
 class ChatArea extends Component {
   constructor () {
@@ -24,7 +25,7 @@ class ChatArea extends Component {
       return <span className='message-content' key={index}>
         <a className='username' href=''>{data.user}</a>
         <span className='time'>{this.getFormattedTime(data.unixEpoch)}</span>
-        <p className='message-body'>{data.message}</p>
+        <p className='message-body'>{ ReactEmoji.emojify(data.message) }</p>
       </span>
     })
 

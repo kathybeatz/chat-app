@@ -9,6 +9,7 @@ const ChatHeader = (props) => {
       <div id="active-channel-name">
         <span>active channel</span>
       </div>
+     {/* Add a drop down of the users in channel */}
     </div>
   )
 }
