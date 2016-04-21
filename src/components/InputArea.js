@@ -30,7 +30,10 @@ class InputArea extends Component {
           type='text'
           onChange={this.handleTextUpdate}
           onKeyUp={this.handleSubmit}
-          value={this.state.text}>
+          value={this.state.text}
+          maxLength='300'
+          minLength='1'
+          autoFocus>
         </textarea>
       </div>)
   }

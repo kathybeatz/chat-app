@@ -12,9 +12,18 @@
   display: inline-block;
 }
 
-#channel-item a {
-  color: #fff;
-  text-decoration: none;
+// channel list item
+#channel-item {
+  height: 20px;
+}
+
+#channel-item button {
+  background-color: #ab9ba9;
+  border-radius: 10px;
+  border: 1px solid #ab9ba9;
+  color: #000;
+  height: 15px;
+  width: 100%;
 }
 
 #channels-header span {
