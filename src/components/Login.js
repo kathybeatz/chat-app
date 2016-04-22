@@ -13,7 +13,10 @@ class Login extends Component{
   render () {
     return (
       <div id="login-container">
-        <button onClick={this.handleClick}>Sign in with Facebook</button>
+        <div id="login-content">
+          <h3>Welcome to chat app</h3>
+          <button onClick={this.handleClick}>Continue with Facebook</button>
+        </div>
       </div>
     )
   }

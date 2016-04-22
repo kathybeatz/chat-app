@@ -1,0 +1,47 @@
+#messages-container {
+  width: calc(100% - 220px);
+  background-color: #fff;
+  float: right;
+  padding: 10px;
+  overflow-y: scroll;
+  margin-bottom: 100px;
+}
+
+// container for individual message
+.message {
+  width: 100%;
+  display: block;
+}
+
+// left column
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 40%;
+  margin-left: 2px;
+  float: left;
+}
+
+// right column
+.message-content {
+  display: block;
+  padding-left: 50px;
+  margin: 5px;
+}
+
+span.time {
+  font-size: 12px;
+  color: #2c2d30;
+}
+
+.username {
+  text-decoration: none;
+  color: #2c2d30;
+  font-weight: 900;
+  font-size: 16px;
+  padding-right: .5em;
+}
+
+.message-body {
+  line-height: 1.375rem;
+}

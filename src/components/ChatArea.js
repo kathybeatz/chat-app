@@ -22,25 +22,30 @@ class ChatArea extends Component {
     let list = this.props.data.filter(data =>
       data.channel === this.props.channel
     ).map((data, index) => {
-      return <span className='message-content' key={index}>
-        <a className='username' href=''>{data.user.name}</a>
-        <span className='time'>{this.getFormattedTime(data.unixEpoch)}</span>
-        <p className='message-body'>{ ReactEmoji.emojify(data.message) }</p>
-      </span>
+      return (
+        <div className='message clearfix' key={index}>
+          <img className='profile-image' src={data.user.imageURL} />
+            <div className='message-content'>
+              <a className='username' href=''>{data.user.name}</a>
+              <span className='time'>{this.getFormattedTime(data.unixEpoch)}</span>
+              <p className='message-body'>{ ReactEmoji.emojify(data.message) }</p>
+            </div>
+        </div>
+      )
     })
 
     if (this.props.data.length >= 1) {
       return (
         <div id='messages-container'>
           {/* <message icon> column */ }
-          <span>{list}</span>
+          {list}
         </div>
       )
     } else {
       return (
         <div id='messages-container'>
           {/* <message icon> column */ }
-          <span> Leave the first message! </span>
+          Leave the first message!
         </div>
       )
     }

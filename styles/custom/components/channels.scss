@@ -8,17 +8,6 @@
   height: 100%;
 }
 
-// .channel-item {
-//   background-color: #ab9ba9;
-//   border-radius: 10px;
-//   border: 1px solid #ab9ba9;
-//   height: 15px;
-//   width: 100%;
-
-//   display: inline-block;
-//   margin-left: 15px;
-// }
-
 .channel-item a {
   color: #fff;
   text-decoration: none;
@@ -53,4 +42,9 @@
   color: #ab9ba9;
   padding-bottom: 2px;
   margin-right: 10px;
+}
+
+button#new-channel-btn:hover {
+  color: #fff;
+  border: 2px solid #fff;
 }
