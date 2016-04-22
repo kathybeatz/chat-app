@@ -1,6 +1,10 @@
 # Chat App using React & Redux
 
-## To run it locally
-1. `$ npm install`
-2. `$ npm run start`
-3. visit `http://localhost:8080`
+### Development
+
+```
+npm install
+npm run start
+```
+
+Direct your browser to `http://localhost:8080`
