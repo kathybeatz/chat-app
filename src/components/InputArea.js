@@ -17,8 +17,7 @@ class InputArea extends Component {
   handleSubmit (e) {
     if (e.keyCode === 13) {
       var newMessage = {
-        text: this.state.text,
-        user: 'User1' // read the username from props
+        text: this.state.text
       }
       this.props.dispatch(createMessage(newMessage))
       this.setState({text: ''})

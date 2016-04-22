@@ -12,7 +12,7 @@ export function createMessage (data) {
     dispatch(addMessage())
     fb.push({
       message: data.text,
-      user: data.user,
+      user: getState().user,
       channel: getState().channels.active.name,
       unixEpoch: new Date().getTime()
     })

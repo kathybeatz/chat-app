@@ -1,40 +1,39 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import ChatArea from './ChatArea'
 import InputArea from './InputArea'
 import ChatHeader from './ChatHeader'
 import Channels from './Channels'
 import Login from './Login'
 
-class App extends Component {
-  constructor () {
-    super()
-    this.isAuthenticated = this.isAuthenticated.bind(this)
-    this.state = { authenticated: false }
-  }
-  isAuthenticated () {
-    this.setState({ authenticated: true })
-  }
-  render () {
-    if (this.state.authenticated) {
-      return (
-        <div id='content-wrapper'>
-          <ChatHeader />
-          <Channels />
-          <ChatArea />
-          <div id='footer'>
-            <div id='filter-feature'></div>
-            <InputArea />
-          </div>
+const App = (props) => {
+  // Only render sign-in button IF user has not been authenticaed
+  if (props.user.name !== '') {
+    return (
+      <div id='content-wrapper'>
+        <ChatHeader {...props} />
+        <Channels />
+        <ChatArea />
+        <div id='footer'>
+          <div id='filter-feature'></div>
+          <InputArea />
         </div>
-      )
-    } else {
-      return (
-        <div>
-          <Login auth={this.isAuthenticated} />
-        </div>
-      )
-    }
+      </div>
+    )
+  } else {
+    return (
+      <div>
+        <Login/>
+      </div>
+    )
   }
 }
 
-export default App
+let mapStateToProps = (state) => {
+  return {
+    user: state.user,
+    active: state.channels.active
+  }
+}
+
+export default connect(mapStateToProps)(App)

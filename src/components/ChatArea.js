@@ -23,7 +23,7 @@ class ChatArea extends Component {
       data.channel === this.props.channel
     ).map((data, index) => {
       return <span className='message-content' key={index}>
-        <a className='username' href=''>{data.user}</a>
+        <a className='username' href=''>{data.user.name}</a>
         <span className='time'>{this.getFormattedTime(data.unixEpoch)}</span>
         <p className='message-body'>{ ReactEmoji.emojify(data.message) }</p>
       </span>
