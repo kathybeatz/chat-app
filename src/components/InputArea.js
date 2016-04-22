@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { createMessage } from '../Actions/messages';
 
 class InputArea extends Component {
@@ -39,4 +40,5 @@ class InputArea extends Component {
   }
 }
 
-export default InputArea
+// injecting dispatch into component and not listening to store
+export default connect()(InputArea)

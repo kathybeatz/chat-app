@@ -3,27 +3,22 @@ import ChatArea from './ChatArea'
 import InputArea from './InputArea'
 import ChatHeader from './ChatHeader'
 import Channels from './Channels'
-
-const propTypes = {
-  messages: PropTypes.object.isRequired,
-}
+import Login from './Login'
 
 const App = (props) => {
-  const { data } = props.messages
 
   return (
     <div id='content-wrapper'>
+      <Login />
       <ChatHeader />
       <Channels />
       <ChatArea />
       <div id='footer'>
         <div id='filter-feature'></div>
-        <InputArea dispatch={props.dispatch} />
+        <InputArea />
       </div>
     </div>
   )
 }
-
-App.propTypes = propTypes
 
 export default App
