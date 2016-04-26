@@ -1,6 +1,6 @@
 import Firebase from 'firebase'
 
-let fb = new Firebase('https://chatapp100.firebaseio.com/messages')
+let fb = new Firebase('https://chatapp100.firebaseio.com/')
 
 function receiveAuth (authData) {
   return {
@@ -11,13 +11,28 @@ function receiveAuth (authData) {
 
 export function authenticateUser () {
   return (dispatch) => {
+    // Authenticate with pop up
     fb.authWithOAuthPopup("facebook", (error, authData) => {
       if (error) {
         console.log("Login Failed!", error)
       } else {
-        dispatch(receiveAuth(authData))
+        dispatch(saveUser(authData)) // save user data to database
+        dispatch(receiveAuth(authData)) // save it to app state
         // console.log("Authenticated successfully with payload:", authData)
       }
     })
   }
 }
+
+function saveUser (authData) {
+  return () =>
+    // set uid as the key, so only unique users will be added to database
+    fb.child('users').child(authData.uid).set({
+    provider: authData.provider,
+    name: authData.facebook.displayName
+  })
+}
+
+// signout
+// fb.offAuth(callback)
+// or fb.unauth()
