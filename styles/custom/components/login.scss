@@ -30,6 +30,10 @@
   border: 1px solid #0B3288;
 }
 
+#login-container button:focus {
+  outline: 0;
+}
+
 #login-container h3 {
   color: #fff;
 }

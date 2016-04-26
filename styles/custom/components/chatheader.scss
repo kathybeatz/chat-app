@@ -14,14 +14,59 @@
   width: 220px;
   height: 100%;
   background-color: #3e313c;
-  padding: 10px;
+  padding: 10px 10px 0 10px;
   float: left;
 }
 
-#user-menu span {
-  display: table-cell;
+#user-menu button {
+  background-color: #3e313c;
+  width: 100%;
   vertical-align: middle;
+  border: none;
+  text-align: left;
+  padding: 5px 5px 0 10px;
+}
+
+#user-menu button:focus {
+  outline: 0;
+}
+
+#user-menu button:hover {
+  background-color: #2B1F29;
+}
+
+#user-menu button span {
+  color: #E0E0E0;
+  font-size: 16px;
+}
+#user-menu button span:hover {
   color: #fff;
+}
+
+.arrow-down {
+  vertical-align: middle;
+  padding: 0 0 5px 7px;
+  display: inline-block;
+  font-size: 8px;
+  color: #fff;
+}
+
+#signout-dropdown {
+  width: 100%;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 5px 5px 5px 0;
+  text-align: center;
+}
+
+#signout-dropdown a {
+  display: block;
+  text-decoration: none;
+}
+
+#signout-dropdown:hover {
+  background-color: #8A5F88;
 }
 
 #active-channel-name {

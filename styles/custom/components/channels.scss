@@ -2,14 +2,13 @@
   position: fixed;
   width: 220px;
   background-color: #3e313c;
-  color: #fff;
   padding: 10px 0 10px;
   float: left;
   height: 100%;
 }
 
 .channel-item a {
-  color: #fff;
+  color: #E0E0E0;
   text-decoration: none;
   font-size: 10px;
   display: block;
@@ -24,6 +23,7 @@
 
 .channel-item  a:hover {
   background-color: #2B1F29;
+  color: #fff;
 }
 
 #channels-header span {
