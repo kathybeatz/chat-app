@@ -1,7 +1,7 @@
 const initialState = {
-  id: '',
-  name: '',
-  imageURL: ''
+  id: null,
+  name: null,
+  imageURL: null
 }
 
 export function user (state = initialState, action) {
@@ -12,6 +12,13 @@ export function user (state = initialState, action) {
         id: action.data.uid,
         name: action.data.facebook.displayName,
         imageURL: action.data.facebook.profileImageURL
+      }
+    case 'SIGN_OUT':
+      return {
+        ...state,
+        id: null,
+        name: null,
+        imageURL: null
       }
     default:
       return state

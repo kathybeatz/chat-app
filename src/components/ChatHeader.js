@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { unauthenticate } from '../Actions/user'
 
 class ChatHeader extends Component {
   constructor () {
@@ -10,7 +12,7 @@ class ChatHeader extends Component {
     }
   }
   handleSignOut () {
-    console.log('sign out')
+    this.props.dispatch(unauthenticate())
   }
   handleShowMenu () {
     this.setState({ style: ''})
@@ -24,9 +26,10 @@ class ChatHeader extends Component {
     return (
       <div id='chat-header'>
         <div id='user-menu'>
-          <button onClick={this.handleShowMenu} onBlur={this.handleHideMenu.bind(this)}>Hi, {this.props.user.name}<div className="arrow-down">&#9660;</div></button>
+      {/* button onBlur={this.handleHideMenu.bind(this)} */}
+          <button onClick={this.handleShowMenu}>Hi, {this.props.user.name}<div className="arrow-down">&#9660;</div></button>
           <div id='signout-dropdown' style={{'display': this.state.style}}>
-            <a href='#'onClick={this.handleSignOut}>Sign out</a>
+            <a href='#' onClick={this.handleSignOut}>Sign out</a>
           </div>
         </div>
         <div id='active-channel-name'>
@@ -38,4 +41,4 @@ class ChatHeader extends Component {
   }
 }
 
-export default ChatHeader
+export default connect()(ChatHeader)

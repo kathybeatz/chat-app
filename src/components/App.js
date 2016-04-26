@@ -8,7 +8,7 @@ import Login from './Login'
 
 const App = (props) => {
   // Only render sign-in button IF user has not been authenticaed
-  if (props.user.name !== '') {
+  if (props.user.name !== null) {
     return (
       <div id='content-wrapper'>
         <ChatHeader {...props} />

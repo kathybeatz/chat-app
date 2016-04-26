@@ -33,6 +33,14 @@ function saveUser (authData) {
   })
 }
 
-// signout
-// fb.offAuth(callback)
-// or fb.unauth()
+export function unauthenticate () {
+  return (dispatch) =>
+  dispatch(signOut())
+  fb.unauth // explicity end session
+}
+
+function signOut () {
+  return {
+    type: 'SIGN_OUT'
+  }
+}
