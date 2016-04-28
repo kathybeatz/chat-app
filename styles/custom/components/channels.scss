@@ -5,6 +5,7 @@
   padding: 10px 0 10px;
   float: left;
   height: 100%;
+  overflow: auto;
 }
 
 .channel-item a {
@@ -26,9 +27,28 @@
   color: #fff;
 }
 
-#channels-header span {
-  padding-left: 5px;
-  padding-bottom: 5px;
+// button
+.channels-header {
+  cursor: pointer;
+  padding: 0 10px 5px 10px;
+  border: none;
+  height: 25px;
+  font-size: 16px;
+  color: #ab9ba9;
+  background-color: #3e313c;
+}
+
+.channels-header:hover {
+  color: #fff;
+}
+
+.channels-header:focus {
+  outline: 0;
+}
+
+// count
+#col_channels span {
+  font-size: 16px;
   color: #ab9ba9;
 }
 
@@ -45,6 +65,8 @@
 }
 
 button#new-channel-btn:hover {
+  cursor: pointer;
   color: #fff;
   border: 2px solid #fff;
 }
+

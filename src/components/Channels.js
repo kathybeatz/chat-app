@@ -20,22 +20,24 @@ import { fetchChannels, changeChannel } from '../Actions/channels'
 class Channels extends Component {
   constructor () {
     super()
-    this.addNewChannelModal = this.addNewChannelModal.bind(this)
+    this.showNewChannelModal = this.showNewChannelModal.bind(this)
     this.hideModal = this.hideModal.bind(this)
     this.handleULclick = this.handleULclick.bind(this)
+    this.showMoreChannelsModal = this.showMoreChannelsModal.bind(this)
     this.state = {
-      inputDisplay: 'none' // determines display value of <NewChannelModal />
+      displayNewChannelModal: 'none' // determines display value of <NewChannelModal />
     }
   }
   componentDidMount () {
     this.props.dispatch(fetchChannels())
   }
-  addNewChannelModal () {
-    this.setState({ inputDisplay: '' })
+  showNewChannelModal () {
+    this.setState({ displayNewChannelModal: '' })
   }
   hideModal () {
-    this.setState({ inputDisplay: 'none' })
+    this.setState({ displayNewChannelModal: 'none' })
   }
+  showMoreChannelsModal () {}
   handleULclick (e) {
     if (e.target.innerHTML.charAt(0) !== "<") {
       this.props.dispatch(changeChannel(e.target.innerHTML))
@@ -43,7 +45,9 @@ class Channels extends Component {
   }
   render () {
     const { all, active } = this.props.channels
-    let allChannels = all.map(function (channel, index) {
+    const moreChannels = all.length > 10
+
+    let firstTenChannels = all.slice(0,10).map(function (channel, index) {
       // use channel.id as key when we start randomizing ids
       if (channel.name === active.name) {
         return <li className='channel-item' key={index}><a className='active' href='#'>{channel.name}</a></li>
@@ -51,15 +55,14 @@ class Channels extends Component {
         return <li className='channel-item' key={index}><a href='#'>{channel.name}</a></li>
       }
     })
-
     return (
       <div id='col_channels'>
-        <span id='channels-header'>Channels ({all.length})</span>
-        <button id='new-channel-btn' onClick={this.addNewChannelModal}>+</button>
+        <button className='channels-header' onClick={this.showMoreChannelsModal}>Channels</button>({all.length})
+        <button id='new-channel-btn' onClick={this.showNewChannelModal}>+</button>
         <ul id='channel-list' onClick={this.handleULclick}>
-          {allChannels}
+          {firstTenChannels}
         </ul>
-        <NewChannelModal style={this.state.inputDisplay} hideModal={this.hideModal}/>
+        <NewChannelModal display={this.state.displayNewChannelModal} hideModal={this.hideModal}/>
       </div>
     )
   }

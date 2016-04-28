@@ -20,7 +20,7 @@ class NewChannelModal extends Component {
   }
   render () {
     return (
-      <div id='new-channel-modal' style={{'display': this.props.style}}>
+      <div id='new-channel-modal' style={{'display': this.props.display}}>
         <div id='modal-container'>
           <button id='hide-modal-btn' onClick={this.props.hideModal}>x</button>
           <label htmlFor='create-new-channel-name'>Channel name</label>
