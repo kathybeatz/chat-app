@@ -11,11 +11,12 @@ const MoreChannelsModal = (props) => {
       return <li className='channel-item' key={index}><a href='#'>{channel.name}</a></li>
     }
   })
-  console.log(all)
+
   return (
     <div id='new-channel-modal' style={{'display': display}}>
       <div id='modal-container'>
         <button id='hide-modal-btn' onClick={props.hideMoreModal}>x</button>
+        <h3>Search all {all.length} channels</h3>
         <div id='all-channels-container'>
           <ul id='channel-list' onClick={props.handleULclick}>
             {allChannels}

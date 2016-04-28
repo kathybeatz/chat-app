@@ -68,7 +68,7 @@ class Channels extends Component {
     if (this.state.displayMoreChannelsModal === '') {
       return (
         <MoreChannelsModal
-          all={all.slice(9)}
+          all={all}
           active={active}
           display={this.state.displayMoreChannelsModal}
           hideMoreModal={this.hideMoreModal.bind(this)}

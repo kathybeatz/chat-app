@@ -55,7 +55,7 @@ label {
   display: inline-block;
   margin-top: 20px;
 }
-// container for all channels modal
+// container for extra channels modal
 #all-channels-container {
   padding: 10px 0 10px 0;
   border: #000 solid 1px;
@@ -69,4 +69,9 @@ label {
 
 #all-channels-container .channel-item a {
   color: #000;
+}
+
+#new-channel-modal h3 {
+  text-align: center;
+  padding-bottom: 10px;
 }
