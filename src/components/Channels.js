@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import MoreChannelsModal from './MoreChannelsModal'
 import NewChannelModal from './NewChannelModal'
 import { connect } from 'react-redux'
 import { fetchChannels, changeChannel } from '../Actions/channels'
+
 /*
   When user clicks new-channel-button,
   1) Show an input field
@@ -21,11 +23,12 @@ class Channels extends Component {
   constructor () {
     super()
     this.showNewChannelModal = this.showNewChannelModal.bind(this)
-    this.hideModal = this.hideModal.bind(this)
+    this.hideNewModal = this.hideNewModal.bind(this)
     this.handleULclick = this.handleULclick.bind(this)
     this.showMoreChannelsModal = this.showMoreChannelsModal.bind(this)
     this.state = {
-      displayNewChannelModal: 'none' // determines display value of <NewChannelModal />
+      displayNewChannelModal: 'none', // determines display value of <NewChannelModal />
+      displayMoreChannelsModal: 'none'
     }
   }
   componentDidMount () {
@@ -34,13 +37,19 @@ class Channels extends Component {
   showNewChannelModal () {
     this.setState({ displayNewChannelModal: '' })
   }
-  hideModal () {
+  hideNewModal () {
     this.setState({ displayNewChannelModal: 'none' })
   }
-  showMoreChannelsModal () {}
+  showMoreChannelsModal () {
+    this.setState({ displayMoreChannelsModal: '' })
+  }
+  hideMoreModal () {
+    this.setState({ displayMoreChannelsModal: 'none' })
+  }
   handleULclick (e) {
     if (e.target.innerHTML.charAt(0) !== "<") {
       this.props.dispatch(changeChannel(e.target.innerHTML))
+      this.hideMoreModal() // When user is on MoreChannelsModal and selects channel, hide the modal
     }
   }
   render () {
@@ -55,16 +64,31 @@ class Channels extends Component {
         return <li className='channel-item' key={index}><a href='#'>{channel.name}</a></li>
       }
     })
-    return (
-      <div id='col_channels'>
-        <button className='channels-header' onClick={this.showMoreChannelsModal}>Channels</button>({all.length})
-        <button id='new-channel-btn' onClick={this.showNewChannelModal}>+</button>
-        <ul id='channel-list' onClick={this.handleULclick}>
-          {firstTenChannels}
-        </ul>
-        <NewChannelModal display={this.state.displayNewChannelModal} hideModal={this.hideModal}/>
-      </div>
-    )
+    console.log(all)
+    if (this.state.displayMoreChannelsModal === '') {
+      return (
+        <MoreChannelsModal
+          all={all.slice(9)}
+          active={active}
+          display={this.state.displayMoreChannelsModal}
+          hideMoreModal={this.hideMoreModal.bind(this)}
+          handleULclick={this.handleULclick} />)
+    } else if (this.state.displayNewChannelModal === '') {
+      return (<NewChannelModal display={this.state.displayNewChannelModal} hideModal={this.hideNewModal}/>)
+    } else {
+      return (
+        <div id='col_channels'>
+          <div className='channels-header'>Channels ({all.length})
+            <button id='new-channel-btn' onClick={this.showNewChannelModal}>+</button>
+          </div>
+          <ul id='channel-list' onClick={this.handleULclick}>
+            {firstTenChannels}
+          </ul>
+          {/* return expr2 if there are > 10 channels */}
+          {moreChannels && <button id='show-more-ch-btn' onClick={this.showMoreChannelsModal}>+ {all.length - 10} more</button>}
+        </div>
+      )
+    }
   }
 }
 

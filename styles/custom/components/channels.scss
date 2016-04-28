@@ -27,27 +27,13 @@
   color: #fff;
 }
 
-// button
 .channels-header {
-  cursor: pointer;
   padding: 0 10px 5px 10px;
-  border: none;
   height: 25px;
-  font-size: 16px;
-  color: #ab9ba9;
   background-color: #3e313c;
 }
-
-.channels-header:hover {
-  color: #fff;
-}
-
-.channels-header:focus {
-  outline: 0;
-}
-
-// count
-#col_channels span {
+// Text and count
+.channels-header span {
   font-size: 16px;
   color: #ab9ba9;
 }
@@ -65,8 +51,19 @@
 }
 
 button#new-channel-btn:hover {
-  cursor: pointer;
   color: #fff;
   border: 2px solid #fff;
 }
 
+#show-more-ch-btn {
+  background-color: #3e313c;
+  border: none;
+  padding: 1px 5px;
+  margin-left: 5px;
+}
+
+// Text inside button
+#show-more-ch-btn span {
+  font-size: 14px;
+  color: #ab9ba9;
+}

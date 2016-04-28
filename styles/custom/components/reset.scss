@@ -5,3 +5,11 @@
   box-sizing: border-box;
   font-family: Slack-Lato, appleLogo ,sans-serif;
 }
+
+button:focus {
+  outline: 0;
+}
+
+button {
+  cursor: pointer;
+}

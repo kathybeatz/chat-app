@@ -15,8 +15,10 @@ class NewChannelModal extends Component {
     this.setState({channel: e.target.value})
   }
   handleSubmit () {
-    this.props.dispatch(createChannel(this.state.channel))
-    this.props.hideModal()
+    if (this.state.channel.length > 1) {
+      this.props.dispatch(createChannel(this.state.channel))
+      this.props.hideModal()
+    }
   }
   render () {
     return (
@@ -27,7 +29,7 @@ class NewChannelModal extends Component {
           <input
             id='create-new-channel-name'
             onChange={this.handleText}
-            min='1'
+            min='2'
             maxLength='21'></input>
           <button id='create-channel-btn' onClick={this.handleSubmit}>Create Channel</button>
         </div>
