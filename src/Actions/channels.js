@@ -30,19 +30,27 @@ function receiveChannels (json) {
   }
 }
 
-function shouldFetchChannels (state) {
-  // return true if state does not contain any channels
-  return state.channels.all.length === 0
-}
+// function shouldFetchChannels (state) {
+//   // return true if state does not contain any channels
+//   return state.channels.all.length === 0
+// }
 
 export function fetchChannels () {
   return (dispatch, getState) => {
     // only listen to fb reference if state DOES NOT contain channels (eg. initial page load)
-    if (shouldFetchChannels(getState())) {
-      fb.on('child_added', function (dataSnapshot) {
-        dispatch(receiveChannels(dataSnapshot.val()))
-      })
-    }
+    fb.on('child_added', function (dataSnapshot) {
+      dispatch(receiveChannels(dataSnapshot.val()))
+    })
+    fb.on('child_removed', function (dataSnapshot) {
+      dispatch(removeChannel(dataSnapshot.val()))
+    })
+  }
+}
+
+function removeChannel (json) {
+  return {
+    type: 'REMOVE_CHANNEL',
+    json: json // data of the removed child
   }
 }
 

@@ -29,6 +29,7 @@ class NewChannelModal extends Component {
           <input
             id='create-new-channel-name'
             onChange={this.handleText}
+            placeholder='Name must be unique and greater than 2 characters'
             min='2'
             maxLength='21'></input>
           <button id='create-channel-btn' onClick={this.handleSubmit}>Create Channel</button>
