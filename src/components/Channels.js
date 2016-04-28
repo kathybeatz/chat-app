@@ -64,7 +64,7 @@ class Channels extends Component {
         return <li className='channel-item' key={index}><a href='#'>{channel.name}</a></li>
       }
     })
-    console.log(all)
+
     if (this.state.displayMoreChannelsModal === '') {
       return (
         <MoreChannelsModal

@@ -7,6 +7,7 @@ class ChatHeader extends Component {
     super()
     this.handleShowMenu = this.handleShowMenu.bind(this)
     this.handleSignOut = this.handleSignOut.bind(this)
+    this.handleHideMenu = this.handleHideMenu.bind(this)
     this.state = {
       style: 'none'
     }
@@ -18,15 +19,12 @@ class ChatHeader extends Component {
     this.setState({ style: ''})
   }
   handleHideMenu () {
-    // why can't I bind this func in constructor?
     this.setState({ style: 'none'})
   }
   render () {
-
     return (
-      <div id='chat-header'>
+      <div id='chat-header' onMouseLeave={this.handleHideMenu}>
         <div id='user-menu'>
-      {/* button onBlur={this.handleHideMenu.bind(this)} */}
           <button onClick={this.handleShowMenu}>Hi, {this.props.user.name}<div className="arrow-down">&#9660;</div></button>
           <div id='signout-dropdown' style={{'display': this.state.style}}>
             <a href='#' onClick={this.handleSignOut}>Sign out</a>
