@@ -8,7 +8,6 @@ const initialState = {
 export function channels (state = initialState, action) {
   switch (action.type) {
     case 'ADD_CHANNEL':
-
       return {
         ...state
       }

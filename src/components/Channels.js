@@ -5,12 +5,6 @@ import { connect } from 'react-redux'
 import { fetchChannels, changeChannel } from '../Actions/channels'
 
 /*
-  When user clicks new-channel-button,
-  1) Show an input field
-    a) user enters channel name
-    b) update state with new channel
-  2) Change channel to new channel
-    a) show messages from that channel
 
   When user clicks on a channel
   1) Handle event through UL.

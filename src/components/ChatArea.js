@@ -29,14 +29,12 @@ class ChatArea extends Component {
     if (this.props.data.length >= 1) {
       return (
         <div id='messages-container'>
-          {/* <message icon> column */ }
           {list}
         </div>
       )
     } else {
       return (
         <div id='messages-container'>
-          {/* <message icon> column */ }
           Leave the first message!
         </div>
       )
@@ -45,7 +43,6 @@ class ChatArea extends Component {
 }
 
 let mapStateToProps = (state) => {
-  // <ChatArea rerenders when data updates
   return {
     data: state.messages.data,
     channel: state.channels.active.name

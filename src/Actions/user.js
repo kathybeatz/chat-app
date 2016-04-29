@@ -1,5 +1,4 @@
 import Firebase from 'firebase'
-
 let fb = new Firebase('https://chatapp100.firebaseio.com/')
 
 function receiveAuth (authData) {
