@@ -35,6 +35,14 @@ export function messages (state = initialState, action) {
         ...state,
         data: [ ...state.data , action.data ]
       }
+    case 'REMOVE_MESSAGE':
+      let updatedData = state.data.filter(function (obj) {
+        return obj.id !== action.json.id
+      })
+      return {
+        ...state,
+        data: updatedData
+      }
     default:
       return state;
   }

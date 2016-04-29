@@ -11,6 +11,7 @@ export function createMessage (data) {
   return (dispatch, getState) => {
     dispatch(addMessage())
     fb.push({
+      id: `${Date.now()}${getState().user.id}`, // time + UID of user
       message: data.text,
       user: getState().user,
       channel: getState().channels.active.name,
@@ -19,19 +20,14 @@ export function createMessage (data) {
   }
 }
 
-function shouldFetchMessages(state) {
-  // return true if state does not contain any messages
-  return state.messages.data.length === 0
-}
-
 export function fetchMessages () {
   return (dispatch, getState) => {
-    // listen to fb reference if state does not contain messages (eg. initial page load)
-    if (shouldFetchMessages(getState())) {
-      fb.on('child_added', function (dataSnapshot) {
-        dispatch(receiveMessages(dataSnapshot.val()))
-      })
-    }
+    fb.on('child_added', function (dataSnapshot) {
+      dispatch(receiveMessages(dataSnapshot.val()))
+    })
+    fb.on('child_removed', function (dataSnapshot) {
+      dispatch(removeMessage(dataSnapshot.val()))
+    })
   }
 }
 
@@ -39,5 +35,12 @@ function receiveMessages (json) {
   return {
     type: 'LOAD_MESSAGES',
     data: json
+  }
+}
+
+function removeMessage (json) {
+  return {
+    type: 'REMOVE_MESSAGE',
+    json: json // data of the removed child
   }
 }
