@@ -9,13 +9,14 @@ function addMessage () {
 
 export function createMessage (data) {
   return (dispatch, getState) => {
+    let date = new Date()
     dispatch(addMessage())
     fb.push({
       id: `${Date.now()}${getState().user.id}`, // time + UID of user
       message: data.text,
       user: getState().user,
       channel: getState().channels.active.name,
-      unixEpoch: new Date().getTime()
+      time: date.toString()
     })
   }
 }
@@ -34,7 +35,7 @@ export function fetchMessages () {
 function receiveMessages (json) {
   return {
     type: 'LOAD_MESSAGES',
-    data: json
+    json: json
   }
 }
 

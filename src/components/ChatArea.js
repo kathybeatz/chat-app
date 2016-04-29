@@ -4,16 +4,8 @@ import { fetchMessages } from '../Actions/messages'
 import ReactEmoji from 'react-emoji'
 
 class ChatArea extends Component {
-  constructor () {
-    super()
-    this.getFormattedTime = this.getFormattedTime.bind(this)
-  }
   componentDidMount () {
     this.props.dispatch(fetchMessages()) //this.actions.receiveMessages(channel)
-  }
-  getFormattedTime (epoch) {
-    let humanDate = new Date(epoch)
-    return humanDate.toLocaleTimeString('en-US')
   }
   render () {
     // only show previous messages if they exist.
@@ -27,7 +19,7 @@ class ChatArea extends Component {
           <img className='profile-image' src={data.user.imageURL} />
             <div className='message-content'>
               <a className='username' href=''>{data.user.name}</a>
-              <span className='time'>{this.getFormattedTime(data.unixEpoch)}</span>
+              <span className='time'>{data.time}</span>
               <p className='message-body'>{ ReactEmoji.emojify(data.message) }</p>
             </div>
         </div>

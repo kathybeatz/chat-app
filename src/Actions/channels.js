@@ -16,7 +16,10 @@ export function createChannel (name) {
     })
     if (duplicates.length === 0) {
       // only add new channel if is not a duplicate in the state
-      fb.push({ name })
+      fb.push({
+        name: name,
+        members: getState().user.id
+      })
       dispatch(addChannel())
       dispatch(changeChannel(name))
     }
@@ -30,14 +33,8 @@ function receiveChannels (json) {
   }
 }
 
-// function shouldFetchChannels (state) {
-//   // return true if state does not contain any channels
-//   return state.channels.all.length === 0
-// }
-
 export function fetchChannels () {
   return (dispatch, getState) => {
-    // only listen to fb reference if state DOES NOT contain channels (eg. initial page load)
     fb.on('child_added', function (dataSnapshot) {
       dispatch(receiveChannels(dataSnapshot.val()))
     })
