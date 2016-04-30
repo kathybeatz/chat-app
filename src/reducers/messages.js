@@ -2,7 +2,7 @@ const initialState = {
   data: []
 }
 
-export function messages (state = initialState, action) {
+export default function messages (state = initialState, action) {
   switch (action.type) {
     case 'ADD_MESSAGE':
       return {

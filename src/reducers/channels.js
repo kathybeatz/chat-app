@@ -5,7 +5,7 @@ const initialState = {
   all: []
 }
 
-export function channels (state = initialState, action) {
+export default function channels (state = initialState, action) {
   switch (action.type) {
     case 'ADD_CHANNEL':
       return {

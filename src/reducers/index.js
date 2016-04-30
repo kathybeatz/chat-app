@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
-import { user } from './user'
-import { messages } from './messages'
-import { channels } from './channels'
+import user from './user'
+import messages from './messages'
+import channels from './channels'
 
 const rootReducer = combineReducers({
   user,
