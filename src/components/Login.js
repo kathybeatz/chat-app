@@ -11,9 +11,15 @@ class Login extends Component{
     this.props.dispatch(authenticateUser())
   }
   render () {
+    const buttonDisplay = this.props.user.name === null ? '' : 'none'
+
     return (
       <div id="login-container">
-        <button onClick={this.handleClick}>Continue with Facebook</button>
+        <button
+          onClick={this.handleClick}
+          style={{display: buttonDisplay}}>
+          Continue with Facebook
+        </button>
       </div>
     )
   }
