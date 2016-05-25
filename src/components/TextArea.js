@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createMessage } from '../Actions/messages';
 
-class InputArea extends Component {
+class TextArea extends Component {
   constructor () {
     super()
     this.handleTextUpdate = this.handleTextUpdate.bind(this)
@@ -24,9 +24,14 @@ class InputArea extends Component {
     }
   }
   render () {
+    const disabledBool = this.props.user.name === null ? true : false
+    const placeholder = disabledBool ? 'Please log in with Facebook to leave a message' : ''
+
     return (
-      <div id='input-area'>
+      <div id='create-msg-area'>
         <textarea
+          placeholder={placeholder}
+          disabled={disabledBool}
           type='text'
           onChange={this.handleTextUpdate}
           onKeyUp={this.handleSubmit}
@@ -40,4 +45,4 @@ class InputArea extends Component {
 }
 
 // injecting dispatch into component and not listening to store
-export default connect()(InputArea)
+export default connect()(TextArea)

@@ -49,6 +49,7 @@ class Channels extends Component {
   render () {
     const { all, active } = this.props.channels
     const moreChannels = all.length > 10
+    const buttonDisplay = this.props.user.name !== null ? '' : 'none'
 
     let firstTenChannels = all.slice(0,10).map(function (channel, index) {
       // use channel.id as key when we start randomizing ids
@@ -73,7 +74,7 @@ class Channels extends Component {
       return (
         <div id='col_channels'>
           <div className='channels-header'>Channels ({all.length})
-            <button id='new-channel-btn' onClick={this.showNewChannelModal}>+</button>
+            <button id='new-channel-btn' style={{'display': buttonDisplay}} onClick={this.showNewChannelModal}>+</button>
           </div>
           <ul id='channel-list' onClick={this.handleULclick}>
             {firstTenChannels}
@@ -88,6 +89,7 @@ class Channels extends Component {
 
 let mapStateToProps = (state) => {
   return {
+    user: state.user,
     channels: state.channels
   }
 }

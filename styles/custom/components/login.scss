@@ -1,28 +1,16 @@
-#login-container {
-  background-color: #000;
-  z-index: 1000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-#login-content {
-  margin: 20% auto;
-  text-align: center;
-}
-
 #login-container button {
   background-color: #1D3C7F;
   border: 1px solid #1D3C7F;
   border-radius: 5px;
   display: inline-block;
-  width: 200px;
+  width: 20%;
   height: 40px;
+  float: right;
+  position: fixed;
+  top: 5px;
+  right: 5%;
   color: #fff;
-  font-size: 16px;
-  margin-top: 10px;
+  font-size: 75%;
 }
 
 #login-container button:hover {
@@ -32,8 +20,4 @@
 
 #login-container button:focus {
   outline: 0;
-}
-
-#login-container h3 {
-  color: #fff;
 }

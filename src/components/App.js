@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ChatArea from './ChatArea'
-import InputArea from './InputArea'
+import TextArea from './TextArea'
 import ChatHeader from './ChatHeader'
 import Channels from './Channels'
-import Login from './Login'
 
 const App = (props) => {
-  // Only render sign-in button IF user has not been authenticaed
-  if (props.user.name !== null) {
     return (
       <div id='content-wrapper'>
         <ChatHeader {...props} />
@@ -16,17 +13,10 @@ const App = (props) => {
         <ChatArea />
         <div id='footer'>
           <div id='filter-feature'></div>
-          <InputArea />
+          <TextArea user={props.user} />
         </div>
       </div>
     )
-  } else {
-    return (
-      <div>
-        <Login/>
-      </div>
-    )
-  }
 }
 
 let mapStateToProps = (state) => {

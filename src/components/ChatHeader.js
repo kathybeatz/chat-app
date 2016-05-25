@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Login from './Login'
 import { connect } from 'react-redux'
 import { unauthenticate } from '../Actions/user'
 
@@ -33,6 +34,7 @@ class ChatHeader extends Component {
         <div id='active-channel-name'>
           <span>{this.props.active.name}</span>
         </div>
+        <Login user={this.props.user} />
        {/* Add a drop down of the users in channel */}
       </div>
     )
