@@ -44,5 +44,10 @@ class TextArea extends Component {
   }
 }
 
-// injecting dispatch into component and not listening to store
-export default connect()(TextArea)
+let mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(TextArea)

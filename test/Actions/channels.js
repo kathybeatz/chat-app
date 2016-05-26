@@ -1,19 +1,19 @@
-import expect from 'expect'
-import nock from 'nock'
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import * as actionCreators from '../../src/Actions/channels'
+// import expect from 'expect'
+// import nock from 'nock'
+// import configureMockStore from 'redux-mock-store'
+// import thunk from 'redux-thunk'
+// import * as actionCreators from '../../src/Actions/channels'
 
-describe('action creators for channels', () => {
-  it('creates an action changes the active channel', () => {
-    const channelName = 'Private Channel'
-    const expectedAction = {
-      type: 'CHANGE_CHANNEL',
-      name: 'Private Channel'
-    }
-    expect(actionCreators.changeChannel(channelName)).toEqual(expectedAction)
-  })
-})
+// describe('action creators for channels', () => {
+//   it('creates an action changes the active channel', () => {
+//     const channelName = 'Private Channel'
+//     const expectedAction = {
+//       type: 'CHANGE_CHANNEL',
+//       name: 'Private Channel'
+//     }
+//     expect(actionCreators.changeChannel(channelName)).toEqual(expectedAction)
+//   })
+// })
 
 /*
 const middlewares = [ thunk ]

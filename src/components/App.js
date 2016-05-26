@@ -8,22 +8,15 @@ import Channels from './Channels'
 const App = (props) => {
     return (
       <div id='content-wrapper'>
-        <ChatHeader {...props} />
+        <ChatHeader />
         <Channels />
         <ChatArea />
         <div id='footer'>
           <div id='filter-feature'></div>
-          <TextArea user={props.user} />
+          <TextArea />
         </div>
       </div>
     )
 }
 
-let mapStateToProps = (state) => {
-  return {
-    user: state.user,
-    active: state.channels.active
-  }
-}
-
-export default connect(mapStateToProps)(App)
+export default App

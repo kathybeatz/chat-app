@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { createChannel } from '../Actions/channels'
-import { connect } from 'react-redux'
 
 class NewChannelModal extends Component {
   constructor () {
@@ -16,7 +14,7 @@ class NewChannelModal extends Component {
   }
   handleSubmit () {
     if (this.state.channel.length > 1) {
-      this.props.dispatch(createChannel(this.state.channel))
+      this.props.addNewChannel(this.state.channel)
       this.props.hideModal()
     }
   }
@@ -39,5 +37,4 @@ class NewChannelModal extends Component {
   }
 }
 
-// injecting dispatch into component and not listening to store
-export default connect()(NewChannelModal)
+export default NewChannelModal

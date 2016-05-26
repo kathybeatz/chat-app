@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import MoreChannelsModal from './MoreChannelsModal'
 import NewChannelModal from './NewChannelModal'
 import { connect } from 'react-redux'
-import { fetchChannels, changeChannel } from '../Actions/channels'
+import { fetchChannels, changeChannel, createChannel } from '../Actions/channels'
 
 /*
 
@@ -20,6 +20,7 @@ class Channels extends Component {
     this.hideNewModal = this.hideNewModal.bind(this)
     this.handleULclick = this.handleULclick.bind(this)
     this.showMoreChannelsModal = this.showMoreChannelsModal.bind(this)
+    this.addNewChannel = this.addNewChannel.bind(this)
     this.state = {
       displayNewChannelModal: 'none', // determines display value of <NewChannelModal />
       displayMoreChannelsModal: 'none'
@@ -39,6 +40,9 @@ class Channels extends Component {
   }
   hideMoreModal () {
     this.setState({ displayMoreChannelsModal: 'none' })
+  }
+  addNewChannel (channel) {
+    this.props.dispatch(createChannel(channel))
   }
   handleULclick (e) {
     if (e.target.innerHTML.charAt(0) !== "<") {
@@ -69,7 +73,7 @@ class Channels extends Component {
           hideMoreModal={this.hideMoreModal.bind(this)}
           handleULclick={this.handleULclick} />)
     } else if (this.state.displayNewChannelModal === '') {
-      return (<NewChannelModal display={this.state.displayNewChannelModal} hideModal={this.hideNewModal}/>)
+      return (<NewChannelModal display={this.state.displayNewChannelModal} hideModal={this.hideNewModal} addNewChannel={this.addNewChannel}/>)
     } else {
       return (
         <div id='col_channels'>

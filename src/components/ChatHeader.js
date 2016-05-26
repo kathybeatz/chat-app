@@ -45,4 +45,11 @@ class ChatHeader extends Component {
   }
 }
 
-export default connect()(ChatHeader)
+let mapStateToProps = (state) => {
+  return {
+    user: state.user,
+    active: state.channels.active
+  }
+}
+
+export default connect(mapStateToProps)(ChatHeader)
