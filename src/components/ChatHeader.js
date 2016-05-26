@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Login from './Login'
 import { connect } from 'react-redux'
-import { unauthenticate } from '../Actions/user'
+import { unauthenticate, authenticateUser } from '../Actions/user'
 
 class ChatHeader extends Component {
   constructor () {
@@ -9,12 +9,16 @@ class ChatHeader extends Component {
     this.handleShowMenu = this.handleShowMenu.bind(this)
     this.handleSignOut = this.handleSignOut.bind(this)
     this.handleHideMenu = this.handleHideMenu.bind(this)
+    this.handleSignIn = this.handleSignIn.bind(this)
     this.state = {
       style: 'none'
     }
   }
   handleSignOut () {
     this.props.dispatch(unauthenticate())
+  }
+  handleSignIn () {
+    this.props.dispatch(authenticateUser())
   }
   handleShowMenu () {
     this.setState({ style: ''})
@@ -34,7 +38,7 @@ class ChatHeader extends Component {
         <div id='active-channel-name'>
           <span>{this.props.active.name}</span>
         </div>
-        <Login user={this.props.user} />
+        <Login user={this.props.user} handleSignIn={this.handleSignIn}/>
        {/* Add a drop down of the users in channel */}
       </div>
     )

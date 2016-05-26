@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { authenticateUser } from '../Actions/user'
 
 class Login extends Component{
   constructor () {
@@ -8,7 +6,7 @@ class Login extends Component{
     this.handleClick = this.handleClick.bind(this)
   }
   handleClick () {
-    this.props.dispatch(authenticateUser())
+    this.props.handleSignIn()
   }
   render () {
     const buttonDisplay = this.props.user.name === null ? '' : 'none'
@@ -25,4 +23,4 @@ class Login extends Component{
   }
 }
 
-export default connect()(Login)
+export default Login
