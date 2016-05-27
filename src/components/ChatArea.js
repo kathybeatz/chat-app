@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchMessages } from '../Actions/messages'
 import ReactEmoji from 'react-emoji'
 
-class ChatArea extends Component {
+export class ChatArea extends Component {
   componentDidMount () {
     this.props.dispatch(fetchMessages()) //this.actions.receiveMessages(channel)
   }
